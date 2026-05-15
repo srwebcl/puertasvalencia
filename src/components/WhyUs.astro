@@ -1,0 +1,395 @@
+---
+const features = [
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+    title: 'Seguridad Garantizada',
+    desc: 'Fabricamos puertas de seguridad robustas con estrictos controles de calidad en cada etapa del proceso.',
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>`,
+    title: '100% a Medida',
+    desc: 'Fabricamos exactamente según tus dimensiones y especificaciones. Sin soluciones estándar: cada puerta es única.',
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+    title: 'Experiencia Local',
+    desc: 'Taller propio en Lampa. +20 años atendiendo hogares y empresas de toda la Región Metropolitana.',
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>`,
+    title: 'Taller Equipado',
+    desc: 'Maquinaria de alta tecnología para trabajos precisos. Cada detalle importa, desde el corte hasta el acabado.',
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+    title: 'Plazo Cumplido',
+    desc: 'Cumplimos los plazos acordados. Tu tiempo es valioso y lo respetamos con compromiso real.',
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>`,
+    title: 'Atención Personalizada',
+    desc: 'Asesoría experta de inicio a fin para elegir el modelo, material y terminación que mejor se adapta a ti.',
+  },
+];
+
+const stats = [
+  { num: '+20', label: 'Años de\nexperiencia' },
+  { num: '100%', label: 'Fabricación\na medida' },
+  { num: '∞', label: 'Clientes\nsatisfechos' },
+];
+---
+
+<section class="why-us" id="por-que-elegirnos" aria-labelledby="whyus-title">
+  <div class="container">
+
+    <!-- Encabezado centrado -->
+    <div class="why-us__header" data-animate>
+      <span class="section-tag">Por Qué Elegirnos</span>
+      <h2 class="section-title" id="whyus-title">
+        +20 Años Fabricando<br/><em>Calidad</em>
+      </h2>
+      <p class="section-subtitle">
+        En Puertas Valencia llevamos más de dos décadas fabricando puertas a medida para clientes de todo Santiago. Nuestro trabajo se destaca por los detalles, la precisión y la calidad de los materiales.
+      </p>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="stats-bar" data-animate>
+      {stats.map((s, i) => (
+        <>
+          <div class="stat-item">
+            <span class="stat-num">{s.num}</span>
+            <span class="stat-label">{s.label}</span>
+          </div>
+          {i < stats.length - 1 && <div class="stat-sep"></div>}
+        </>
+      ))}
+    </div>
+
+    <!-- Grid de features -->
+    <div class="features-grid">
+      {features.map((f, i) => (
+        <div class="feature-card" data-animate style={`animation-delay: ${i * 0.08}s`}>
+          <div class="feature-card__icon-wrap">
+            <Fragment set:html={f.icon} />
+          </div>
+          <div class="feature-card__body">
+            <h3 class="feature-card__title">{f.title}</h3>
+            <p class="feature-card__desc">{f.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA inferior -->
+    <div class="why-us__cta" data-animate>
+      <a href="#contacto" class="cta-main">
+        <span>Solicitar Cotización Gratis</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+      <div class="cta-phone">
+        <span class="cta-phone__label">O llámanos directamente</span>
+        <a href="tel:+56957290061" class="cta-phone__num">+56 9 5729 0061</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* ── Sección ────────────────────────────────────────── */
+  .why-us {
+    padding: 64px 0 60px;
+    background: #fff;
+    position: relative;
+  }
+
+  /* Franja dorada superior */
+  .why-us::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg,
+      #1a1a1a 0%,
+      #96791f 20%,
+      #c8a84b 40%,
+      #e8c96a 50%,
+      #c8a84b 60%,
+      #96791f 80%,
+      #1a1a1a 100%
+    );
+  }
+
+  /* ── Encabezado ─────────────────────────────────────── */
+  .why-us__header {
+    text-align: center;
+    max-width: 620px;
+    margin-inline: auto;
+    margin-bottom: 44px;
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #96791f;
+    border: 1.5px solid #c8a84b;
+    padding: 5px 16px;
+    border-radius: 2px;
+    margin-bottom: 18px;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1.05;
+    text-transform: uppercase;
+    color: #111;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .section-title em {
+    font-style: normal;
+    background: linear-gradient(135deg, #96791f 0%, #c8a84b 45%, #e8c96a 60%, #c8a84b 80%, #96791f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .section-subtitle {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  /* ── Stats bar ──────────────────────────────────────── */
+  .stats-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 48px;
+    background: linear-gradient(135deg, #111 0%, #2a2a2a 50%, #111 100%);
+    border-radius: 12px;
+    padding: 28px 40px;
+    border: 1px solid rgba(200,168,75,0.25);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.05);
+  }
+
+  .stat-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+  }
+
+  .stat-num {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #c8a84b 0%, #e8c96a 50%, #c8a84b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.4;
+    white-space: pre-line;
+  }
+
+  .stat-sep {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, transparent, rgba(200,168,75,0.35), transparent);
+    flex-shrink: 0;
+    margin: 0 16px;
+  }
+
+  /* ── Features grid ──────────────────────────────────── */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 44px;
+  }
+
+  .feature-card {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 24px 20px;
+    background: #fafaf8;
+    border: 1px solid #ebebeb;
+    border-radius: 10px;
+    transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Shimmer dorado en hover */
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #96791f, #c8a84b, #e8c96a, #c8a84b, #96791f);
+    opacity: 0;
+    transition: opacity 0.28s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px rgba(0,0,0,0.09);
+    border-color: #d8d0b8;
+  }
+
+  .feature-card:hover::before { opacity: 1; }
+
+  /* Ícono en círculo metálico */
+  .feature-card__icon-wrap {
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #111 0%, #333 50%, #111 100%);
+    border: 1px solid rgba(200,168,75,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #c8a84b;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.07);
+    transition: box-shadow 0.28s ease;
+  }
+
+  .feature-card:hover .feature-card__icon-wrap {
+    box-shadow: 0 4px 16px rgba(200,168,75,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+    border-color: rgba(200,168,75,0.5);
+  }
+
+  .feature-card__title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #111;
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+  }
+
+  .feature-card__desc {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ── CTA inferior ───────────────────────────────────── */
+  .why-us__cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .cta-main {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 32px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #3d3d3d 50%, #1a1a1a 100%);
+    color: #f0eede;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    border-radius: 6px;
+    border: 1px solid rgba(200,168,75,0.3);
+    box-shadow: 0 4px 18px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.07);
+    transition: all 0.28s ease;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-main::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -80%; width: 60%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(200,168,75,0.2), transparent);
+    transition: left 0.5s ease;
+    pointer-events: none;
+  }
+
+  .cta-main > * { position: relative; z-index: 1; }
+
+  .cta-main:hover::before { left: 130%; }
+
+  .cta-main:hover {
+    background: linear-gradient(135deg, #2c2c2c 0%, #555 50%, #2c2c2c 100%);
+    border-color: rgba(200,168,75,0.55);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.1);
+    color: #e8c96a;
+  }
+
+  .cta-phone {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    align-items: center;
+  }
+
+  .cta-phone__label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #999;
+  }
+
+  .cta-phone__num {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 20px;
+    color: #111;
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    transition: color 0.2s;
+  }
+
+  .cta-phone__num:hover { color: #96791f; }
+
+  /* ── Responsive ─────────────────────────────────────── */
+  @media (max-width: 1000px) {
+    .features-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 640px) {
+    .why-us { padding: 48px 0 44px; }
+    .why-us__header { margin-bottom: 32px; }
+    .stats-bar { padding: 20px 24px; gap: 0; margin-bottom: 32px; }
+    .stat-num { font-size: 28px; }
+    .stat-sep { margin: 0 10px; height: 36px; }
+    .features-grid { grid-template-columns: 1fr; gap: 12px; margin-bottom: 32px; }
+    .why-us__cta { flex-direction: column; gap: 20px; }
+  }
+</style>

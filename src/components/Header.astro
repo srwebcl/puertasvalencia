@@ -1,0 +1,413 @@
+---
+---
+
+<header class="header" id="header">
+  <!-- Ticker / franja superior con texto animado infinito -->
+  <div class="header__ticker" aria-hidden="true">
+    <div class="ticker__track">
+      <div class="ticker__content">
+        <span class="ticker__item">🚪 Puertas Enchapadas a Medida</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">🔒 Puertas Blindadas de Alta Seguridad</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">⚡ Fabricación Rápida y Garantizada</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">📐 Fabricamos a Tu Medida Exacta</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">🏆 +20 Años de Experiencia en Santiago</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">💰 Cotización Gratuita Sin Compromiso</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">🛡️ Calidad Premium Directo de Fábrica</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">📦 Instalación Profesional en Todo Santiago</span>
+        <span class="ticker__sep">✦</span>
+      </div>
+      <!-- Segunda copia para loop perfecto -->
+      <div class="ticker__content" aria-hidden="true">
+        <span class="ticker__item">🚪 Puertas Enchapadas a Medida</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">🔒 Puertas Blindadas de Alta Seguridad</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">⚡ Fabricación Rápida y Garantizada</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">📐 Fabricamos a Tu Medida Exacta</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">🏆 +20 Años de Experiencia en Santiago</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">💰 Cotización Gratuita Sin Compromiso</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">🛡️ Calidad Premium Directo de Fábrica</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">📦 Instalación Profesional en Todo Santiago</span>
+        <span class="ticker__sep">✦</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="header__main">
+    <div class="container header__main-inner">
+      <a href="/" class="header__logo" aria-label="Puertas Valencia - Inicio">
+        <div class="logo-mark">
+          <img src="/web_images/Logo-Puertas-Valencia.webp" alt="Puertas Valencia Logo" class="logo-img" />
+        </div>
+      </a>
+
+      <nav class="header__nav" id="nav" aria-label="Navegación principal">
+        <ul class="nav-list">
+          <li><a href="/" class="nav-link">Inicio</a></li>
+          <li><a href="#servicios" class="nav-link">Servicios</a></li>
+          <li><a href="#por-que-elegirnos" class="nav-link">Nosotros</a></li>
+          <li><a href="#proceso" class="nav-link">Proceso</a></li>
+          <li><a href="#galeria" class="nav-link">Galería</a></li>
+          <li><a href="#contacto" class="nav-link">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <a href="#contacto" class="cta-btn header__cta" id="cta-cotizar">
+        Cotizar Gratis
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  /* ── Ticker ─────────────────────────────────────────── */
+  .header__ticker {
+    background: var(--color-primary);
+    color: #fff;
+    overflow: hidden;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid var(--color-accent);
+  }
+
+  .ticker__track {
+    display: flex;
+    width: max-content;
+    animation: ticker-scroll 38s linear infinite;
+  }
+
+  .ticker__track:hover {
+    animation-play-state: paused;
+  }
+
+  .ticker__content {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    padding-right: 0;
+  }
+
+  .ticker__item {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    padding: 0 28px;
+    text-transform: uppercase;
+  }
+
+  .ticker__sep {
+    color: var(--color-accent);
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+
+  @keyframes ticker-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ── Header principal ───────────────────────────────── */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--color-white);
+    box-shadow: 0 1px 0 var(--color-gray-light);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .header.scrolled {
+    box-shadow: 0 6px 24px rgba(0,0,0,0.13);
+  }
+
+  /* Ticker oculto al hacer scroll */
+  .header__ticker {
+    max-height: 38px;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    overflow: hidden;
+    opacity: 1;
+  }
+
+  .header.scrolled .header__ticker {
+    max-height: 0;
+    opacity: 0;
+  }
+
+  /* Logo con transición de tamaño */
+  .logo-mark {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-img {
+    height: 90px;
+    width: auto;
+    object-fit: contain;
+    transition: height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .header.scrolled .logo-img {
+    height: 52px;
+  }
+
+  .header__main {
+    padding: 12px 0;
+    transition: padding 0.35s ease;
+  }
+
+  .header.scrolled .header__main {
+    padding: 6px 0;
+  }
+
+  .header__main-inner {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  /* ── Logo ───────────────────────────────────────────── */
+  .header__logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    color: var(--color-primary);
+  }
+
+  .logo-tagline {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  /* ── Nav ────────────────────────────────────────────── */
+  .header__nav { margin-inline-start: auto; }
+
+  .nav-list {
+    list-style: none;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+
+  .nav-link {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: var(--radius);
+    color: var(--color-primary);
+    transition: all var(--transition);
+    position: relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 12px;
+    right: 12px;
+    height: 2px;
+    background: var(--color-accent);
+    transform: scaleX(0);
+    transition: transform var(--transition);
+    transform-origin: left;
+  }
+
+  .nav-link:hover { color: var(--color-accent); }
+  .nav-link:hover::after { transform: scaleX(1); }
+
+  /* ── CTA Button — Degradé premium ───────────────────── */
+  .header__cta { flex-shrink: 0; }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #3a3a3a 50%, #1f1f1f 100%);
+    color: #f5f0e8;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.12);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+      0 4px 16px rgba(0,0,0,0.35),
+      inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+
+  /* Shimmer dorado al hover */
+  .cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(255, 220, 140, 0.18) 50%,
+      transparent 100%
+    );
+    transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 0;
+  }
+
+  .cta-btn > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-btn:hover::before {
+    left: 125%;
+  }
+
+  .cta-btn:hover {
+    background: linear-gradient(135deg, #2a2a2a 0%, #4a4a4a 50%, #2a2a2a 100%);
+    border-color: rgba(255,255,255,0.22);
+    transform: translateY(-2px);
+    box-shadow:
+      0 10px 28px rgba(0,0,0,0.4),
+      inset 0 1px 0 rgba(255,255,255,0.15);
+    color: #fff;
+  }
+
+  .cta-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  /* ── Hamburger ──────────────────────────────────────── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    margin-inline-start: auto;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-primary);
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+
+  .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+  /* ── Responsive ─────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .header__ticker { height: 34px; }
+    .ticker__item { font-size: 12px; padding: 0 20px; }
+
+    .hamburger { display: flex; }
+
+    .header__nav {
+      position: fixed;
+      inset: 0 0 0 30%;
+      background: var(--color-white);
+      z-index: 200;
+      flex-direction: column;
+      padding: 80px 32px 32px;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: -20px 0 60px rgba(0,0,0,0.15);
+    }
+
+    .header__nav.open { transform: translateX(0); }
+
+    .nav-list {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+
+    .nav-link {
+      font-size: 18px;
+      padding: 12px 0;
+    }
+
+    .header__cta { display: none; }
+  }
+
+  @media (max-width: 480px) {
+    .header__nav { inset: 0; }
+  }
+</style>
+
+<script>
+  const header = document.getElementById('header');
+  const hamburger = document.getElementById('hamburger');
+  const nav = document.getElementById('nav');
+
+  window.addEventListener('scroll', () => {
+    header?.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  hamburger?.addEventListener('click', () => {
+    const isOpen = hamburger.classList.toggle('open');
+    nav?.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  nav?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger?.classList.remove('open');
+      nav.classList.remove('open');
+      hamburger?.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+</script>

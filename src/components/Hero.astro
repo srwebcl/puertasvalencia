@@ -1,0 +1,336 @@
+---
+const slides = [
+  "/web_images/La_misma_imagen_pero_que_202605142038.jpeg",
+  "/web_images/la_misma_imagen_que_se_202605142041.jpeg",
+  "/web_images/Mantén_la_misma_imagen_pero_202605142034.jpeg",
+];
+---
+
+<section class="hero" aria-label="Fábrica de puertas a medida en Santiago" id="inicio">
+
+  <!-- Slideshow Ken Burns -->
+  <div class="hero__slideshow" aria-hidden="true">
+    {slides.map((src, i) => (
+      <div class={`slide slide--${i}`}>
+        <img src={src} alt="" loading={i === 0 ? "eager" : "lazy"} fetchpriority={i === 0 ? "high" : "auto"} />
+      </div>
+    ))}
+    <div class="hero__overlay"></div>
+  </div>
+
+  <!-- Contenido -->
+  <div class="hero__content">
+
+    <div class="hero__badges">
+      <span class="badge">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        +20 años de experiencia
+      </span>
+      <span class="badge">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+        Garantía de calidad
+      </span>
+      <span class="badge">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        Fabricación 100% a medida
+      </span>
+    </div>
+
+    <h1 class="hero__title">
+      Fábrica de <strong>Puertas</strong><br/>
+      <em>a Medida</em> en Santiago
+    </h1>
+
+    <p class="hero__description">
+      Fabricamos <strong>puertas enchapadas en madera</strong> y <strong>puertas blindadas de seguridad</strong> a medida para hogares y empresas de todo Santiago. Taller propio en Lampa, con más de 20 años de experiencia.
+    </p>
+
+    <div class="hero__actions">
+      <a href="#contacto" class="cta-btn cta-btn--primary">
+        Cotizar Gratis — Sin Compromiso
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+      <a href="tel:+56957290061" class="cta-btn cta-btn--ghost">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+        </svg>
+        +56 9 5729 0061
+      </a>
+    </div>
+
+
+
+  </div>
+
+</section>
+
+<style>
+  /* ── Sección ────────────────────────────────────────── */
+  .hero {
+    position: relative;
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding-bottom: 12vh;
+  }
+
+  /* ── Slideshow ──────────────────────────────────────── */
+  .hero__slideshow {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.6s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity;
+  }
+
+  .slide.is-active { opacity: 1; }
+
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Ken Burns — distinto por slide */
+  .slide--0.is-active img { animation: kb-zoom-in   10s ease-in-out forwards; }
+  .slide--1.is-active img { animation: kb-pan-left  10s ease-in-out forwards; }
+  .slide--2.is-active img { animation: kb-zoom-out  10s ease-in-out forwards; }
+  .slide--3.is-active img { animation: kb-pan-right 10s ease-in-out forwards; }
+
+  @keyframes kb-zoom-in   { from { transform: scale(1.0) translate(0, 0); }       to { transform: scale(1.1) translate(-2%, -1%); } }
+  @keyframes kb-zoom-out  { from { transform: scale(1.1) translate(2%, 1%); }      to { transform: scale(1.0) translate(0, 0); } }
+  @keyframes kb-pan-left  { from { transform: scale(1.08) translate(3%, 0); }      to { transform: scale(1.08) translate(-3%, 0); } }
+  @keyframes kb-pan-right { from { transform: scale(1.08) translate(-3%, 1%); }    to { transform: scale(1.08) translate(3%, -1%); } }
+
+  /* Overlay: oscuro izquierda, gradiente al fondo */
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to right, rgba(5,5,5,0.78) 0%, rgba(5,5,5,0.52) 50%, rgba(5,5,5,0.28) 100%),
+      linear-gradient(to top,   rgba(0,0,0,0.5)  0%, transparent 60%);
+    z-index: 1;
+  }
+
+  /* ── Contenido ──────────────────────────────────────── */
+  .hero__content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0;
+  }
+
+  /* Badges */
+  .hero__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 28px;
+    animation: fadeUp 0.7s ease 0.1s both;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.16);
+    color: rgba(255,255,255,0.88);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 2px;
+    backdrop-filter: blur(8px);
+    background: linear-gradient(135deg, rgba(255,255,255,0.10) 0%, rgba(180,180,180,0.06) 100%);
+    border: 1px solid rgba(220,220,220,0.22);
+    color: #fff;
+  }
+
+  .badge svg { color: #d4d4d4; flex-shrink: 0; }
+
+  /* Título */
+  .hero__title {
+    font-family: var(--font-display);
+    font-size: clamp(52px, 7vw, 100px);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 0 0 28px;
+    max-width: 100%;
+    white-space: nowrap;
+    animation: fadeUp 0.7s ease 0.2s both;
+  }
+
+  .hero__title strong {
+    color: #fff;
+  }
+
+  .hero__title em {
+    font-style: normal;
+    color: #fff;
+  }
+
+  /* Descripción */
+  .hero__description {
+    font-size: clamp(15px, 1.4vw, 18px);
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+    max-width: 620px;
+    margin: 0 0 36px;
+    text-align: center;
+    animation: fadeUp 0.7s ease 0.3s both;
+  }
+
+  .hero__description strong { color: rgba(255,255,255,0.95); }
+
+  /* Botones */
+  .hero__actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 0;
+    animation: fadeUp 0.7s ease 0.4s both;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 16px 30px;
+    border-radius: var(--radius);
+    transition: all 0.25s ease;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    border: none;
+  }
+
+  .cta-btn--primary {
+    background: linear-gradient(135deg, #1a1a1a 0%, #3d3d3d 50%, #1a1a1a 100%);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.14);
+    box-shadow:
+      0 4px 20px rgba(0,0,0,0.5),
+      inset 0 1px 0 rgba(255,255,255,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Shimmer plateado al hover */
+  .cta-btn--primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(220,220,220,0.22) 50%,
+      transparent 100%
+    );
+    transition: left 0.5s ease;
+    pointer-events: none;
+  }
+
+  .cta-btn--primary > * { position: relative; z-index: 1; }
+
+  .cta-btn--primary:hover::before { left: 125%; }
+
+  .cta-btn--primary:hover {
+    background: linear-gradient(135deg, #2c2c2c 0%, #525252 50%, #2c2c2c 100%);
+    border-color: rgba(255,255,255,0.26);
+    transform: translateY(-2px);
+    box-shadow:
+      0 10px 28px rgba(0,0,0,0.55),
+      inset 0 1px 0 rgba(255,255,255,0.18);
+  }
+
+  .cta-btn--ghost {
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255,255,255,0.32);
+  }
+
+  .cta-btn--ghost:hover {
+    border-color: rgba(255,255,255,0.72);
+    background: rgba(255,255,255,0.08);
+  }
+
+
+
+  /* ── Animaciones ────────────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Responsive ─────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .hero__content { padding: 0 32px; }
+    .hero__title { font-size: clamp(44px, 9vw, 68px); margin-bottom: 20px; }
+    .hero__description { font-size: 15px; margin-bottom: 28px; }
+    .hero__badges { margin-bottom: 20px; }
+  }
+
+  @media (max-width: 600px) {
+    .hero__content { padding: 0 24px; }
+    .hero__title { font-size: clamp(38px, 10vw, 56px); }
+    .hero__description { font-size: 14px; }
+    .hero__actions { flex-direction: column; }
+    .cta-btn { justify-content: center; font-size: 13px; padding: 15px 24px; }
+  }
+</style>
+
+<script>
+  const TOTAL = 3;
+  const INTERVAL = 6000;
+  const slides = document.querySelectorAll<HTMLElement>('.slide');
+  let current = 0;
+  let timer: ReturnType<typeof setInterval>;
+
+  function goTo(index: number) {
+    slides[current].classList.remove('is-active');
+    current = (index + TOTAL) % TOTAL;
+    slides[current].classList.add('is-active');
+  }
+
+  function startTimer() {
+    timer = setInterval(() => goTo(current + 1), INTERVAL);
+  }
+
+  goTo(0);
+  startTimer();
+
+  const hero = document.querySelector('.hero');
+  hero?.addEventListener('mouseenter', () => clearInterval(timer));
+  hero?.addEventListener('mouseleave', () => startTimer());
+</script>

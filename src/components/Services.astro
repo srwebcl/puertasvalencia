@@ -1,0 +1,435 @@
+---
+const services = [
+  {
+    id: 'enchapadas',
+    image: '/web_images/WhatsApp-Image-2025-04-16-at-5.54.12-PM.jpeg',
+    title: 'Puertas Enchapadas en Madera',
+    description: 'Fabricamos puertas enchapadas de alta calidad con distintas maderas y terminaciones. Diseño elegante y resistente, perfectas para interiores y exteriores.',
+    features: ['Madera seleccionada', 'Múltiples diseños', 'Medidas exactas', 'Pintura y barnizado'],
+    cta: 'Cotizar Enchapadas',
+    featured: false,
+  },
+  {
+    id: 'blindadas',
+    image: '/web_images/WhatsApp-Image-2025-04-16-at-5.54.13-PM-1.jpeg',
+    title: 'Puertas de Seguridad Blindadas',
+    description: 'Máxima protección para tu hogar o empresa. Acero reforzado, cerradura multipunto y resistencia anti-intrusión certificada.',
+    features: ['Acero reforzado', 'Cerradura multipunto', 'Anti-intrusión', 'Instalación incluida'],
+    cta: 'Cotizar Blindadas',
+    featured: true,
+  },
+  {
+    id: 'restauracion',
+    image: '/web_images/WhatsApp-Image-2025-04-16-at-5.54.14-PM.jpeg',
+    title: 'Restauración y Barnizado',
+    description: 'Devolvemos la vida a tus puertas antiguas. Reparamos, lijamos, pintamos y barnizamos con acabados profesionales de primer nivel.',
+    features: ['Reparación de daños', 'Lijado profesional', 'Pintura y barniz', 'Acabados finos'],
+    cta: 'Cotizar Restauración',
+    featured: false,
+  },
+];
+---
+
+<section class="services" id="servicios" aria-labelledby="services-title">
+  <div class="container">
+
+    <!-- Encabezado -->
+    <div class="section-header" data-animate>
+      <span class="section-tag">Nuestros Servicios</span>
+      <h2 class="section-title" id="services-title">
+        Soluciones en Puertas<br/>para Todo Santiago
+      </h2>
+      <p class="section-subtitle">
+        Fabricamos, instalamos y restauramos puertas a medida. Más de 20 años de calidad para hogares y empresas de la Región Metropolitana.
+      </p>
+    </div>
+
+    <!-- Cards carrusel -->
+    <div class="services__track-wrap" data-animate>
+      <div class="services__track">
+        {services.map((s, i) => (
+          <article class={`service-card ${s.featured ? 'service-card--featured' : ''}`}>
+            {s.featured && <div class="service-card__ribbon">Más Solicitado</div>}
+
+            <!-- Imagen -->
+            <div class="service-card__img-wrap">
+              <img src={s.image} alt={s.title} loading="lazy" />
+              <div class="service-card__img-overlay"></div>
+            </div>
+
+            <!-- Cuerpo -->
+            <div class="service-card__body">
+              <h3 class="service-card__title">{s.title}</h3>
+              <p class="service-card__desc">{s.description}</p>
+
+              <ul class="service-card__features">
+                {s.features.map(f => (
+                  <li>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" class="feat-check">
+                      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+
+              <a href="#contacto" class="service-card__cta">
+                <span>{s.cta}</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <!-- Trust bar -->
+    <div class="trust-bar" data-animate>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+        </div>
+        <span>Garantía en todos nuestros trabajos</span>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </div>
+        <span>Atendemos todo Santiago</span>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+        </div>
+        <span>Cotización en menos de 24 horas</span>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <span>+20 años de experiencia</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* ── Variables locales ─────────────────────────────── */
+  :root {
+    --gold:        #c8a84b;
+    --gold-light:  #e8c96a;
+    --gold-dark:   #96791f;
+    --silver:      #a8a8a8;
+    --silver-light:#d8d8d8;
+    --metal-dark:  #1a1a1a;
+    --metal-mid:   #3a3a3a;
+  }
+
+  /* ── Sección ────────────────────────────────────────── */
+  .services {
+    padding: 64px 0 56px;
+    background: #f5f4f0;
+    position: relative;
+  }
+
+  /* Franja dorada superior */
+  .services::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg,
+      var(--metal-dark) 0%,
+      var(--gold-dark)  20%,
+      var(--gold)       40%,
+      var(--gold-light) 50%,
+      var(--gold)       60%,
+      var(--gold-dark)  80%,
+      var(--metal-dark) 100%
+    );
+  }
+
+  /* ── Encabezado ─────────────────────────────────────── */
+  .section-header {
+    text-align: center;
+    max-width: 600px;
+    margin-inline: auto;
+    margin-bottom: 44px;
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    background: transparent;
+    border: 1.5px solid var(--gold);
+    padding: 5px 16px;
+    border-radius: 2px;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(28px, 4vw, 46px);
+    line-height: 1.05;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+
+  .section-subtitle {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ── Carrusel ───────────────────────────────────────── */
+  .services__track-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 8px;
+    margin-bottom: 36px;
+  }
+
+  .services__track-wrap::-webkit-scrollbar { display: none; }
+
+  .services__track {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    min-width: 900px;
+  }
+
+  /* ── Cards ──────────────────────────────────────────── */
+  .service-card {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e0ddd5;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.32s ease, box-shadow 0.32s ease;
+    position: relative;
+  }
+
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 52px rgba(0,0,0,0.13);
+  }
+
+  /* Card destacada: borde dorado */
+  .service-card--featured {
+    border: 2px solid var(--gold);
+    box-shadow: 0 6px 28px rgba(200,168,75,0.18);
+  }
+
+  .service-card--featured:hover {
+    box-shadow: 0 22px 56px rgba(200,168,75,0.26);
+  }
+
+  /* Ribbon dorado */
+  .service-card__ribbon {
+    position: absolute;
+    top: 16px;
+    right: -28px;
+    background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 50%, var(--gold-light) 100%);
+    color: #1a1a1a;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 40px;
+    transform: rotate(35deg);
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    white-space: nowrap;
+  }
+
+  /* Imagen */
+  .service-card__img-wrap {
+    position: relative;
+    height: 210px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .service-card__img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .service-card:hover .service-card__img-wrap img {
+    transform: scale(1.06);
+  }
+
+  .service-card__img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 60%);
+  }
+
+  /* Cuerpo */
+  .service-card__body {
+    padding: 24px 22px 22px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .service-card__title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 17px;
+    text-transform: uppercase;
+    color: #111;
+    margin-bottom: 10px;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+  }
+
+  .service-card__desc {
+    color: #666;
+    font-size: 13.5px;
+    line-height: 1.65;
+    margin-bottom: 16px;
+    flex: 1;
+  }
+
+  /* Features */
+  .service-card__features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+
+  .service-card__features li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #333;
+  }
+
+  .feat-check {
+    color: var(--gold-dark);
+    flex-shrink: 0;
+  }
+
+  /* CTA — negro metálico con shimmer dorado */
+  .service-card__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 12px 18px;
+    background: linear-gradient(135deg, var(--metal-dark) 0%, var(--metal-mid) 50%, var(--metal-dark) 100%);
+    color: #f0eede;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    border-radius: 6px;
+    border: 1px solid rgba(200,168,75,0.3);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.07), 0 3px 10px rgba(0,0,0,0.18);
+    transition: all 0.28s ease;
+    margin-top: auto;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card__cta::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -80%; width: 60%; height: 100%;
+    background: linear-gradient(120deg, transparent 0%, rgba(200,168,75,0.2) 50%, transparent 100%);
+    transition: left 0.5s ease;
+    pointer-events: none;
+  }
+
+  .service-card__cta > * { position: relative; z-index: 1; }
+
+  .service-card__cta:hover::before { left: 130%; }
+
+  .service-card__cta:hover {
+    background: linear-gradient(135deg, #2c2c2c 0%, #555 50%, #2c2c2c 100%);
+    border-color: rgba(200,168,75,0.6);
+    transform: translateX(3px);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 6px 18px rgba(0,0,0,0.25);
+    color: var(--gold-light);
+  }
+
+  /* ── Trust bar ──────────────────────────────────────── */
+  .trust-bar {
+    background: linear-gradient(135deg, var(--metal-dark) 0%, #2e2e2e 50%, var(--metal-dark) 100%);
+    border-radius: 10px;
+    padding: 22px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+    border: 1px solid rgba(200,168,75,0.2);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.04);
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255,255,255,0.82);
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .trust-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 60%, var(--gold-light) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #1a1a1a;
+    box-shadow: 0 2px 8px rgba(200,168,75,0.35);
+  }
+
+  .trust-divider {
+    width: 1px;
+    height: 28px;
+    background: linear-gradient(to bottom, transparent, rgba(200,168,75,0.3), transparent);
+    flex-shrink: 0;
+  }
+
+  /* ── Responsive ─────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .services__track { grid-template-columns: repeat(3, 320px); }
+  }
+
+  @media (max-width: 600px) {
+    .services { padding: 48px 0 40px; }
+    .section-header { margin-bottom: 32px; }
+    .services__track { grid-template-columns: repeat(3, 290px); gap: 16px; }
+    .trust-bar { padding: 18px 20px; flex-direction: column; align-items: flex-start; }
+    .trust-divider { display: none; }
+  }
+</style>

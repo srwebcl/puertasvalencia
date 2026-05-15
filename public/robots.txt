@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://puertasvalencia.cl/sitemap-index.xml
