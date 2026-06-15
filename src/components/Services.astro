@@ -2,7 +2,8 @@
 const services = [
   {
     id: 'enchapadas',
-    image: '/web_images/WhatsApp-Image-2025-04-16-at-5.54.12-PM.jpeg',
+    image: '/web_images/puerta-enchapada.jpeg_202606151109.jpeg',
+    alt: 'Puerta enchapada en madera a medida instalada en vivienda de Santiago',
     title: 'Puertas Enchapadas en Madera',
     description: 'Fabricamos puertas enchapadas de alta calidad con distintas maderas y terminaciones. Diseño elegante y resistente, perfectas para interiores y exteriores.',
     features: ['Madera seleccionada', 'Múltiples diseños', 'Medidas exactas', 'Pintura y barnizado'],
@@ -11,7 +12,8 @@ const services = [
   },
   {
     id: 'blindadas',
-    image: '/web_images/WhatsApp-Image-2025-04-16-at-5.54.13-PM-1.jpeg',
+    image: '/web_images/puerta-blindada.jpeg_202606151119.jpeg',
+    alt: 'Puerta de seguridad blindada de alto estándar instalada en la Región Metropolitana',
     title: 'Puertas de Seguridad Blindadas',
     description: 'Máxima protección para tu hogar o empresa. Acero reforzado, cerradura multipunto y resistencia anti-intrusión certificada.',
     features: ['Acero reforzado', 'Cerradura multipunto', 'Anti-intrusión', 'Instalación incluida'],
@@ -20,7 +22,8 @@ const services = [
   },
   {
     id: 'restauracion',
-    image: '/web_images/WhatsApp-Image-2025-04-16-at-5.54.14-PM.jpeg',
+    image: '/web_images/puerta-restaurada.jpeg_202606151108.jpeg',
+    alt: 'Servicio profesional de restauración y barnizado de puertas de madera antiguas',
     title: 'Restauración y Barnizado',
     description: 'Devolvemos la vida a tus puertas antiguas. Reparamos, lijamos, pintamos y barnizamos con acabados profesionales de primer nivel.',
     features: ['Reparación de daños', 'Lijado profesional', 'Pintura y barniz', 'Acabados finos'],
@@ -40,7 +43,7 @@ const services = [
         Soluciones en Puertas<br/>para Todo Santiago
       </h2>
       <p class="section-subtitle">
-        Fabricamos, instalamos y restauramos puertas a medida. Más de 20 años de calidad para hogares y empresas de la Región Metropolitana.
+        Fábrica de puertas a medida. Cobertura en todas las comunas de Santiago, Viña del Mar y Concón.
       </p>
     </div>
 
@@ -53,7 +56,7 @@ const services = [
 
             <!-- Imagen -->
             <div class="service-card__img-wrap">
-              <img src={s.image} alt={s.title} loading="lazy" />
+              <img src={s.image} alt={s.alt} width="400" height="300" loading="lazy" decoding="async" />
               <div class="service-card__img-overlay"></div>
             </div>
 
@@ -73,7 +76,7 @@ const services = [
                 ))}
               </ul>
 
-              <a href="#contacto" class="service-card__cta">
+              <a href="#contacto" id={`btn-cotizar-${s.id}`} class="service-card__cta">
                 <span>{s.cta}</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                   <path d="M5 12h14M12 5l7 7-7 7"/>

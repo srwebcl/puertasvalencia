@@ -6,8 +6,8 @@ export interface Props {
 }
 
 const {
-  title,
-  description = 'Fábrica de puertas enchapadas en madera y puertas de seguridad blindadas a medida en Santiago. +20 años de experiencia. Solicita tu cotización gratis.',
+  title = 'Fábrica de Puertas a Medida: Blindadas y Enchapadas | Valencia',
+  description = 'Fábrica de puertas a medida. Especialistas en puertas blindadas, enchapadas en madera y restauración. Cobertura en todo Santiago, Viña del Mar y Concón.',
   canonical = 'https://puertasvalencia.cl',
 } = Astro.props;
 ---
@@ -20,37 +20,61 @@ const {
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <!-- Google Tag Manager -->
+    <script is:inline>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-XXXXXXX'); /* Reemplazar GTM-XXXXXXX con tu ID */
+    </script>
+    <!-- End Google Tag Manager -->
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
+    <meta property="og:image" content="https://puertasvalencia.cl/web_images/puerta-blindada.jpeg_202606151119.jpeg" />
     <meta property="og:locale" content="es_CL" />
     <meta property="og:site_name" content="Puertas Valencia" />
 
     <!-- Schema.org LocalBusiness -->
-    <script type="application/ld+json">
+    <script type="application/ld+json" is:inline>
       {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
+        "@type": "HomeAndConstructionBusiness",
         "name": "Puertas Valencia",
-        "description": "Fábrica de puertas enchapadas y blindadas a medida en Santiago de Chile",
+        "description": "Fábrica de puertas a medida. Especialistas en puertas blindadas, enchapadas en madera y restauración.",
         "telephone": "+56957290061",
         "email": "contacto@puertasvalencia.cl",
+        "url": "https://puertasvalencia.cl",
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Santiago"
+          },
+          {
+            "@type": "State",
+            "name": "Región Metropolitana de Santiago"
+          },
+          {
+            "@type": "City",
+            "name": "Viña del Mar"
+          },
+          {
+            "@type": "City",
+            "name": "Concón"
+          }
+        ],
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Río de Janeiro 68, Sol de Septiembre",
           "addressLocality": "Lampa",
           "addressRegion": "Región Metropolitana",
           "addressCountry": "CL"
         },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": -33.2852,
-          "longitude": -70.9563
-        },
-        "areaServed": "Santiago de Chile",
         "openingHours": "Mo-Fr 09:00-18:00",
         "priceRange": "$$"
       }
@@ -168,11 +192,17 @@ const {
     </style>
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <slot />
 
     <!-- WhatsApp Float Button -->
     <a
       href="https://wa.me/56957290061?text=Hola,%20me%20interesa%20cotizar%20una%20puerta"
+      id="btn-whatsapp-flotante"
       class="whatsapp-float"
       target="_blank"
       rel="noopener noreferrer"
