@@ -10,7 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.16.0"
+    "astro": "^4.16.0",
+    "resend": "^6.12.4"
   },
   "devDependencies": {
     "@astrojs/sitemap": "3.6.0",
